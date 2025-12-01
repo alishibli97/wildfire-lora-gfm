@@ -1,0 +1,257 @@
+Starting job 40366 on geoinfo-gpu1
+Fri Nov 28 16:56:40 2025       
++---------------------------------------------------------------------------------------+
+| NVIDIA-SMI 530.30.02              Driver Version: 530.30.02    CUDA Version: 12.1     |
+|-----------------------------------------+----------------------+----------------------+
+| GPU  Name                  Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf            Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                                         |                      |               MIG M. |
+|=========================================+======================+======================|
+|   0  NVIDIA GeForce RTX 3080         On | 00000000:3D:00.0 Off |                  N/A |
+| 30%   23C    P8               22W / 320W|      1MiB / 10240MiB |      0%      Default |
+|                                         |                      |                  N/A |
++-----------------------------------------+----------------------+----------------------+
+                                                                                         
++---------------------------------------------------------------------------------------+
+| Processes:                                                                            |
+|  GPU   GI   CI        PID   Type   Process name                            GPU Memory |
+|        ID   ID                                                             Usage      |
+|=======================================================================================|
+|  No running processes found                                                           |
++---------------------------------------------------------------------------------------+
+2025-11-28 16:56:52 | INFO | NVIDIA GeForce RTX 3080
+2025-11-28 16:56:52 | INFO | Training prithvi-v2 with lora on Wildfire BA Mapping US+CA (spatiotemporal split 1)
+2025-11-28 16:56:52 | INFO | Training on source states/years (spatio-temporal). Dataset size: 2298
+2025-11-28 16:56:53 | INFO | Checkpoint dir: checkpoints_experiments/prithvi-v2_US+CA_experiment-spatiotemporal_split-1_lora
+2025-11-28 16:56:57 | INFO | Created model
+2025-11-28 16:56:57 | INFO | Total params: 325,194,498
+2025-11-28 16:56:57 | INFO | Trainable params: 22,094,594 (6.7943%)
+2025-11-28 17:00:08 | INFO | New best evaluation loss: 0.3890499585348627
+2025-11-28 17:00:10 | INFO | Saved new best checkpoint: checkpoints_experiments/prithvi-v2_US+CA_experiment-spatiotemporal_split-1_lora/epoch_best_0.pt
+2025-11-28 17:00:10 | INFO | Epoch 0 average loss: 0.4506
+2025-11-28 17:02:51 | INFO | Epoch 1 average loss: 0.3996
+2025-11-28 17:05:32 | INFO | Epoch 2 average loss: 0.3867
+2025-11-28 17:08:15 | INFO | Epoch 3 average loss: 0.3685
+2025-11-28 17:11:03 | INFO | Epoch 4 average loss: 0.3545
+2025-11-28 17:14:13 | INFO | New best evaluation loss: 0.29721634434941024
+2025-11-28 17:14:15 | INFO | Saved new best checkpoint: checkpoints_experiments/prithvi-v2_US+CA_experiment-spatiotemporal_split-1_lora/epoch_best_5.pt
+2025-11-28 17:14:16 | INFO | Deleted previous best checkpoint: checkpoints_experiments/prithvi-v2_US+CA_experiment-spatiotemporal_split-1_lora/epoch_best_0.pt
+2025-11-28 17:14:16 | INFO | Epoch 5 average loss: 0.3314
+2025-11-28 17:16:50 | INFO | Epoch 6 average loss: 0.3275
+2025-11-28 17:19:37 | INFO | Epoch 7 average loss: 0.3259
+2025-11-28 17:22:25 | INFO | Epoch 8 average loss: 0.3260
+2025-11-28 17:25:11 | INFO | Epoch 9 average loss: 0.3180
+2025-11-28 17:28:22 | INFO | New best evaluation loss: 0.27505736362351024
+2025-11-28 17:28:24 | INFO | Saved new best checkpoint: checkpoints_experiments/prithvi-v2_US+CA_experiment-spatiotemporal_split-1_lora/epoch_best_10.pt
+2025-11-28 17:28:24 | INFO | Deleted previous best checkpoint: checkpoints_experiments/prithvi-v2_US+CA_experiment-spatiotemporal_split-1_lora/epoch_best_5.pt
+2025-11-28 17:28:24 | INFO | Epoch 10 average loss: 0.3073
+2025-11-28 17:31:06 | INFO | Epoch 11 average loss: 0.2941
+2025-11-28 17:33:46 | INFO | Epoch 12 average loss: 0.2967
+2025-11-28 17:36:29 | INFO | Epoch 13 average loss: 0.3019
+2025-11-28 17:39:16 | INFO | Epoch 14 average loss: 0.2902
+2025-11-28 17:42:27 | INFO | New best evaluation loss: 0.26020407443461213
+2025-11-28 17:42:29 | INFO | Saved new best checkpoint: checkpoints_experiments/prithvi-v2_US+CA_experiment-spatiotemporal_split-1_lora/epoch_best_15.pt
+2025-11-28 17:42:29 | INFO | Deleted previous best checkpoint: checkpoints_experiments/prithvi-v2_US+CA_experiment-spatiotemporal_split-1_lora/epoch_best_10.pt
+2025-11-28 17:42:29 | INFO | Epoch 15 average loss: 0.2839
+2025-11-28 17:45:11 | INFO | Epoch 16 average loss: 0.2755
+2025-11-28 17:47:59 | INFO | Epoch 17 average loss: 0.2671
+2025-11-28 17:50:40 | INFO | Epoch 18 average loss: 0.2768
+2025-11-28 17:53:24 | INFO | Epoch 19 average loss: 0.2759
+2025-11-28 17:56:37 | INFO | Epoch 20 average loss: 0.2852
+2025-11-28 17:59:20 | INFO | Epoch 21 average loss: 0.2716
+2025-11-28 18:02:11 | INFO | Epoch 22 average loss: 0.2613
+2025-11-28 18:04:59 | INFO | Epoch 23 average loss: 0.2693
+2025-11-28 18:07:52 | INFO | Epoch 24 average loss: 0.2631
+2025-11-28 18:11:07 | INFO | New best evaluation loss: 0.2575025851311891
+2025-11-28 18:11:09 | INFO | Saved new best checkpoint: checkpoints_experiments/prithvi-v2_US+CA_experiment-spatiotemporal_split-1_lora/epoch_best_25.pt
+2025-11-28 18:11:09 | INFO | Deleted previous best checkpoint: checkpoints_experiments/prithvi-v2_US+CA_experiment-spatiotemporal_split-1_lora/epoch_best_15.pt
+2025-11-28 18:11:09 | INFO | Epoch 25 average loss: 0.2710
+2025-11-28 18:13:50 | INFO | Epoch 26 average loss: 0.2532
+2025-11-28 18:16:34 | INFO | Epoch 27 average loss: 0.2510
+2025-11-28 18:19:22 | INFO | Epoch 28 average loss: 0.2593
+2025-11-28 18:22:05 | INFO | Epoch 29 average loss: 0.2513
+2025-11-28 18:25:17 | INFO | Epoch 30 average loss: 0.2538
+2025-11-28 18:27:58 | INFO | Epoch 31 average loss: 0.2458
+2025-11-28 18:30:38 | INFO | Epoch 32 average loss: 0.2482
+2025-11-28 18:33:23 | INFO | Epoch 33 average loss: 0.2504
+2025-11-28 18:36:01 | INFO | Epoch 34 average loss: 0.2503
+2025-11-28 18:39:13 | INFO | New best evaluation loss: 0.22779831084544244
+2025-11-28 18:39:15 | INFO | Saved new best checkpoint: checkpoints_experiments/prithvi-v2_US+CA_experiment-spatiotemporal_split-1_lora/epoch_best_35.pt
+2025-11-28 18:39:15 | INFO | Deleted previous best checkpoint: checkpoints_experiments/prithvi-v2_US+CA_experiment-spatiotemporal_split-1_lora/epoch_best_25.pt
+2025-11-28 18:39:15 | INFO | Epoch 35 average loss: 0.2333
+2025-11-28 18:42:00 | INFO | Epoch 36 average loss: 0.2380
+2025-11-28 18:44:37 | INFO | Epoch 37 average loss: 0.2412
+2025-11-28 18:47:10 | INFO | Epoch 38 average loss: 0.2396
+2025-11-28 18:49:47 | INFO | Epoch 39 average loss: 0.2435
+2025-11-28 18:52:57 | INFO | Epoch 40 average loss: 0.2327
+2025-11-28 18:55:41 | INFO | Epoch 41 average loss: 0.2324
+2025-11-28 18:58:26 | INFO | Epoch 42 average loss: 0.2262
+2025-11-28 19:01:15 | INFO | Epoch 43 average loss: 0.2342
+2025-11-28 19:03:58 | INFO | Epoch 44 average loss: 0.2340
+2025-11-28 19:07:07 | INFO | Epoch 45 average loss: 0.2307
+2025-11-28 19:09:40 | INFO | Epoch 46 average loss: 0.2402
+2025-11-28 19:12:20 | INFO | Epoch 47 average loss: 0.2298
+2025-11-28 19:15:04 | INFO | Epoch 48 average loss: 0.2266
+2025-11-28 19:17:48 | INFO | Epoch 49 average loss: 0.2262
+2025-11-28 19:21:02 | INFO | Epoch 50 average loss: 0.2302
+2025-11-28 19:23:47 | INFO | Epoch 51 average loss: 0.2209
+2025-11-28 19:26:26 | INFO | Epoch 52 average loss: 0.2342
+2025-11-28 19:29:13 | INFO | Epoch 53 average loss: 0.2251
+2025-11-28 19:31:55 | INFO | Epoch 54 average loss: 0.2224
+2025-11-28 19:35:12 | INFO | Epoch 55 average loss: 0.2255
+2025-11-28 19:38:00 | INFO | Epoch 56 average loss: 0.2198
+2025-11-28 19:40:47 | INFO | Epoch 57 average loss: 0.2192
+2025-11-28 19:43:32 | INFO | Epoch 58 average loss: 0.2230
+2025-11-28 19:46:14 | INFO | Epoch 59 average loss: 0.2291
+2025-11-28 19:49:30 | INFO | New best evaluation loss: 0.21796123148144586
+2025-11-28 19:49:33 | INFO | Saved new best checkpoint: checkpoints_experiments/prithvi-v2_US+CA_experiment-spatiotemporal_split-1_lora/epoch_best_60.pt
+2025-11-28 19:49:33 | INFO | Deleted previous best checkpoint: checkpoints_experiments/prithvi-v2_US+CA_experiment-spatiotemporal_split-1_lora/epoch_best_35.pt
+2025-11-28 19:49:33 | INFO | Epoch 60 average loss: 0.2254
+2025-11-28 19:52:11 | INFO | Epoch 61 average loss: 0.2189
+2025-11-28 19:54:56 | INFO | Epoch 62 average loss: 0.2220
+2025-11-28 19:57:36 | INFO | Epoch 63 average loss: 0.2128
+2025-11-28 20:00:22 | INFO | Epoch 64 average loss: 0.2112
+2025-11-28 20:03:39 | INFO | Epoch 65 average loss: 0.2160
+2025-11-28 20:06:23 | INFO | Epoch 66 average loss: 0.2212
+2025-11-28 20:09:06 | INFO | Epoch 67 average loss: 0.2116
+2025-11-28 20:11:54 | INFO | Epoch 68 average loss: 0.2075
+2025-11-28 20:14:41 | INFO | Epoch 69 average loss: 0.2147
+2025-11-28 20:18:00 | INFO | Epoch 70 average loss: 0.2058
+2025-11-28 20:20:47 | INFO | Epoch 71 average loss: 0.2061
+2025-11-28 20:23:37 | INFO | Epoch 72 average loss: 0.2074
+2025-11-28 20:26:29 | INFO | Epoch 73 average loss: 0.2156
+2025-11-28 20:29:13 | INFO | Epoch 74 average loss: 0.2027
+2025-11-28 20:32:25 | INFO | Epoch 75 average loss: 0.2073
+2025-11-28 20:35:07 | INFO | Epoch 76 average loss: 0.2120
+2025-11-28 20:37:52 | INFO | Epoch 77 average loss: 0.2077
+2025-11-28 20:40:37 | INFO | Epoch 78 average loss: 0.2125
+2025-11-28 20:43:22 | INFO | Epoch 79 average loss: 0.2029
+2025-11-28 20:46:38 | INFO | Epoch 80 average loss: 0.2113
+2025-11-28 20:49:26 | INFO | Epoch 81 average loss: 0.2044
+2025-11-28 20:52:11 | INFO | Epoch 82 average loss: 0.2130
+2025-11-28 20:54:54 | INFO | Epoch 83 average loss: 0.1974
+2025-11-28 20:57:40 | INFO | Epoch 84 average loss: 0.2076
+2025-11-28 21:00:56 | INFO | Epoch 85 average loss: 0.1929
+2025-11-28 21:03:42 | INFO | Epoch 86 average loss: 0.1998
+2025-11-28 21:06:22 | INFO | Epoch 87 average loss: 0.2033
+2025-11-28 21:08:58 | INFO | Epoch 88 average loss: 0.2101
+2025-11-28 21:11:45 | INFO | Epoch 89 average loss: 0.1974
+2025-11-28 21:14:53 | INFO | Epoch 90 average loss: 0.2039
+2025-11-28 21:17:32 | INFO | Epoch 91 average loss: 0.1950
+2025-11-28 21:20:18 | INFO | Epoch 92 average loss: 0.1986
+2025-11-28 21:23:02 | INFO | Epoch 93 average loss: 0.2031
+2025-11-28 21:25:47 | INFO | Epoch 94 average loss: 0.2069
+2025-11-28 21:29:01 | INFO | Epoch 95 average loss: 0.1986
+2025-11-28 21:31:43 | INFO | Epoch 96 average loss: 0.1889
+2025-11-28 21:34:25 | INFO | Epoch 97 average loss: 0.2050
+2025-11-28 21:37:03 | INFO | Epoch 98 average loss: 0.1994
+2025-11-28 21:39:48 | INFO | Epoch 99 average loss: 0.1975
+2025-11-28 21:43:00 | INFO | Epoch 100 average loss: 0.1958
+2025-11-28 21:45:45 | INFO | Epoch 101 average loss: 0.1975
+2025-11-28 21:48:27 | INFO | Epoch 102 average loss: 0.1999
+2025-11-28 21:51:12 | INFO | Epoch 103 average loss: 0.1925
+2025-11-28 21:53:51 | INFO | Epoch 104 average loss: 0.1882
+2025-11-28 21:57:02 | INFO | Epoch 105 average loss: 0.1908
+2025-11-28 21:59:46 | INFO | Epoch 106 average loss: 0.1862
+2025-11-28 22:02:28 | INFO | Epoch 107 average loss: 0.1886
+2025-11-28 22:05:12 | INFO | Epoch 108 average loss: 0.1958
+2025-11-28 22:07:56 | INFO | Epoch 109 average loss: 0.1980
+2025-11-28 22:11:13 | INFO | Epoch 110 average loss: 0.1969
+2025-11-28 22:13:54 | INFO | Epoch 111 average loss: 0.1934
+2025-11-28 22:16:39 | INFO | Epoch 112 average loss: 0.1921
+2025-11-28 22:19:23 | INFO | Epoch 113 average loss: 0.1909
+2025-11-28 22:22:04 | INFO | Epoch 114 average loss: 0.1900
+2025-11-28 22:25:17 | INFO | Epoch 115 average loss: 0.1893
+2025-11-28 22:28:02 | INFO | Epoch 116 average loss: 0.1884
+2025-11-28 22:30:46 | INFO | Epoch 117 average loss: 0.1792
+2025-11-28 22:33:32 | INFO | Epoch 118 average loss: 0.1865
+2025-11-28 22:36:19 | INFO | Epoch 119 average loss: 0.1802
+2025-11-28 22:39:25 | INFO | Epoch 120 average loss: 0.1884
+2025-11-28 22:42:07 | INFO | Epoch 121 average loss: 0.1898
+2025-11-28 22:44:54 | INFO | Epoch 122 average loss: 0.1833
+2025-11-28 22:47:35 | INFO | Epoch 123 average loss: 0.1886
+2025-11-28 22:50:20 | INFO | Epoch 124 average loss: 0.1832
+2025-11-28 22:53:31 | INFO | Epoch 125 average loss: 0.1861
+2025-11-28 22:56:05 | INFO | Epoch 126 average loss: 0.1887
+2025-11-28 22:58:42 | INFO | Epoch 127 average loss: 0.1833
+2025-11-28 23:01:23 | INFO | Epoch 128 average loss: 0.1917
+2025-11-28 23:04:00 | INFO | Epoch 129 average loss: 0.1969
+2025-11-28 23:07:04 | INFO | New best evaluation loss: 0.21623408333600863
+2025-11-28 23:07:07 | INFO | Saved new best checkpoint: checkpoints_experiments/prithvi-v2_US+CA_experiment-spatiotemporal_split-1_lora/epoch_best_130.pt
+2025-11-28 23:07:07 | INFO | Deleted previous best checkpoint: checkpoints_experiments/prithvi-v2_US+CA_experiment-spatiotemporal_split-1_lora/epoch_best_60.pt
+2025-11-28 23:07:07 | INFO | Epoch 130 average loss: 0.1920
+2025-11-28 23:09:51 | INFO | Epoch 131 average loss: 0.1741
+2025-11-28 23:12:40 | INFO | Epoch 132 average loss: 0.1816
+2025-11-28 23:15:20 | INFO | Epoch 133 average loss: 0.1841
+2025-11-28 23:17:58 | INFO | Epoch 134 average loss: 0.1876
+2025-11-28 23:21:09 | INFO | New best evaluation loss: 0.21572345925656997
+2025-11-28 23:21:11 | INFO | Saved new best checkpoint: checkpoints_experiments/prithvi-v2_US+CA_experiment-spatiotemporal_split-1_lora/epoch_best_135.pt
+2025-11-28 23:21:11 | INFO | Deleted previous best checkpoint: checkpoints_experiments/prithvi-v2_US+CA_experiment-spatiotemporal_split-1_lora/epoch_best_130.pt
+2025-11-28 23:21:11 | INFO | Epoch 135 average loss: 0.1874
+2025-11-28 23:23:58 | INFO | Epoch 136 average loss: 0.1791
+2025-11-28 23:26:48 | INFO | Epoch 137 average loss: 0.1824
+2025-11-28 23:29:34 | INFO | Epoch 138 average loss: 0.1803
+2025-11-28 23:32:14 | INFO | Epoch 139 average loss: 0.1784
+2025-11-28 23:35:25 | INFO | Epoch 140 average loss: 0.1741
+2025-11-28 23:38:07 | INFO | Epoch 141 average loss: 0.1791
+2025-11-28 23:40:54 | INFO | Epoch 142 average loss: 0.1754
+2025-11-28 23:43:40 | INFO | Epoch 143 average loss: 0.1846
+2025-11-28 23:46:20 | INFO | Epoch 144 average loss: 0.1797
+2025-11-28 23:49:29 | INFO | Epoch 145 average loss: 0.1836
+2025-11-28 23:52:14 | INFO | Epoch 146 average loss: 0.1783
+2025-11-28 23:55:02 | INFO | Epoch 147 average loss: 0.1800
+2025-11-28 23:57:46 | INFO | Epoch 148 average loss: 0.1799
+2025-11-29 00:00:26 | INFO | Epoch 149 average loss: 0.1766
+2025-11-29 00:04:20 | INFO | Epoch 150 average loss: 0.1824
+2025-11-29 00:07:17 | INFO | Epoch 151 average loss: 0.1857
+2025-11-29 00:10:23 | INFO | Epoch 152 average loss: 0.1736
+2025-11-29 00:13:40 | INFO | Epoch 153 average loss: 0.1723
+2025-11-29 00:16:27 | INFO | Epoch 154 average loss: 0.1697
+2025-11-29 00:19:49 | INFO | Epoch 155 average loss: 0.1661
+2025-11-29 00:22:46 | INFO | Epoch 156 average loss: 0.1762
+2025-11-29 00:25:35 | INFO | Epoch 157 average loss: 0.1718
+2025-11-29 00:28:18 | INFO | Epoch 158 average loss: 0.1671
+2025-11-29 00:31:06 | INFO | Epoch 159 average loss: 0.1767
+2025-11-29 00:34:24 | INFO | Epoch 160 average loss: 0.1794
+2025-11-29 00:37:08 | INFO | Epoch 161 average loss: 0.1714
+2025-11-29 00:39:46 | INFO | Epoch 162 average loss: 0.1837
+2025-11-29 00:42:25 | INFO | Epoch 163 average loss: 0.1754
+2025-11-29 00:45:08 | INFO | Epoch 164 average loss: 0.1670
+2025-11-29 00:48:19 | INFO | Epoch 165 average loss: 0.1866
+2025-11-29 00:50:57 | INFO | Epoch 166 average loss: 0.1685
+2025-11-29 00:53:42 | INFO | Epoch 167 average loss: 0.1759
+2025-11-29 00:56:26 | INFO | Epoch 168 average loss: 0.1795
+2025-11-29 00:59:06 | INFO | Epoch 169 average loss: 0.1726
+2025-11-29 01:02:17 | INFO | Epoch 170 average loss: 0.1710
+2025-11-29 01:05:03 | INFO | Epoch 171 average loss: 0.1765
+2025-11-29 01:07:44 | INFO | Epoch 172 average loss: 0.1752
+2025-11-29 01:10:31 | INFO | Epoch 173 average loss: 0.1677
+2025-11-29 01:13:13 | INFO | Epoch 174 average loss: 0.1745
+2025-11-29 01:16:26 | INFO | New best evaluation loss: 0.20121378395706416
+2025-11-29 01:16:28 | INFO | Saved new best checkpoint: checkpoints_experiments/prithvi-v2_US+CA_experiment-spatiotemporal_split-1_lora/epoch_best_175.pt
+2025-11-29 01:16:28 | INFO | Deleted previous best checkpoint: checkpoints_experiments/prithvi-v2_US+CA_experiment-spatiotemporal_split-1_lora/epoch_best_135.pt
+2025-11-29 01:16:28 | INFO | Epoch 175 average loss: 0.1651
+2025-11-29 01:19:11 | INFO | Epoch 176 average loss: 0.1691
+2025-11-29 01:21:50 | INFO | Epoch 177 average loss: 0.1720
+2025-11-29 01:24:35 | INFO | Epoch 178 average loss: 0.1786
+2025-11-29 01:27:15 | INFO | Epoch 179 average loss: 0.1661
+2025-11-29 01:30:20 | INFO | Epoch 180 average loss: 0.1776
+2025-11-29 01:33:00 | INFO | Epoch 181 average loss: 0.1651
+2025-11-29 01:35:39 | INFO | Epoch 182 average loss: 0.1647
+2025-11-29 01:38:24 | INFO | Epoch 183 average loss: 0.1699
+2025-11-29 01:41:06 | INFO | Epoch 184 average loss: 0.1732
+2025-11-29 01:44:20 | INFO | Epoch 185 average loss: 0.1744
+2025-11-29 01:47:02 | INFO | Epoch 186 average loss: 0.1753
+2025-11-29 01:49:42 | INFO | Epoch 187 average loss: 0.1760
+2025-11-29 01:52:26 | INFO | Epoch 188 average loss: 0.1699
+2025-11-29 01:55:11 | INFO | Epoch 189 average loss: 0.1665
+2025-11-29 01:58:19 | INFO | Epoch 190 average loss: 0.1746
+2025-11-29 02:01:05 | INFO | Epoch 191 average loss: 0.1577
+2025-11-29 02:03:51 | INFO | Epoch 192 average loss: 0.1655
+2025-11-29 02:06:33 | INFO | Epoch 193 average loss: 0.1716
+2025-11-29 02:09:12 | INFO | Epoch 194 average loss: 0.1689
+2025-11-29 02:12:19 | INFO | Epoch 195 average loss: 0.1726
+2025-11-29 02:15:04 | INFO | Epoch 196 average loss: 0.1731
+2025-11-29 02:17:49 | INFO | Epoch 197 average loss: 0.1751
+2025-11-29 02:20:33 | INFO | Epoch 198 average loss: 0.1699
+2025-11-29 02:23:21 | INFO | Epoch 199 average loss: 0.1688

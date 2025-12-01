@@ -1,0 +1,9 @@
+checkpoints/
+checkpoints_experiments/
+__pycache__/
+*.sbatch
+*.ipynb
+slums/
+fullfire_visuals
+
+
