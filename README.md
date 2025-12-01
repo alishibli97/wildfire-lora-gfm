@@ -1,4 +1,4 @@
-# wildfire-lora-gfm 🛡️  
+# wildfire-lora-gfm
 
 **LoRA fine-tuning of Geospatial Foundation Models for Wildfire Burned-Area Mapping (Sentinel-2)**
 
