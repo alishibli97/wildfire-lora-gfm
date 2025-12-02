@@ -1,6 +1,7 @@
 import torch
 import torch.nn as nn
 from terratorch import BACKBONE_REGISTRY
+from loguru import logger
 
 
 # ----------------------------------------------------
@@ -90,6 +91,7 @@ class TerraMindWrapper(nn.Module):
         lora_alpha=1.0,
         selected_indices=(2, 5, 8, 11),
         verbose=False,
+        full_finetuning=False,
     ):
         super().__init__()
 
@@ -101,9 +103,13 @@ class TerraMindWrapper(nn.Module):
             bands=bands,
         )
 
-        # 2) Freeze ALL backbone params
-        for p in self.backbone.parameters():
-            p.requires_grad = False
+        if full_finetuning:
+            logger.info("Using all parameters")
+        else:
+            logger.info("Freezing encoder")
+            # 2) Freeze ALL backbone params
+            for p in self.backbone.parameters():
+                p.requires_grad = False
 
         # 3) Apply LoRA (this adds NEW trainable params)
         if use_lora:

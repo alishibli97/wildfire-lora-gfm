@@ -18,6 +18,7 @@ class PrithviChangeDetectionModel(nn.Module):
         patch_size: tuple[int,int] = (16,16),
         img_size: tuple[int,int] = (128,128),
         decoder_channels: int = 256,
+        full_finetuning: bool = False,
         # merge_mode: str = "concat",   # or "diff"
     ):
         super().__init__()
@@ -33,6 +34,7 @@ class PrithviChangeDetectionModel(nn.Module):
             img_size=img_size,
             has_cls_token=True,
             verbose=False,
+            full_finetuning=full_finetuning,
         )
         # self.backbone = PrithviWrapper(
         #     backbone_name=backbone_name,

@@ -20,6 +20,7 @@ class DinoV3ChangeDetectionModel(nn.Module):
         img_size: tuple[int, int] = (224, 224),
         embed_dim: int = 768,   # ViT-B/16
         verbose: bool = False,
+        full_finetuning: bool = False,
     ):
         super().__init__()
 
@@ -31,6 +32,7 @@ class DinoV3ChangeDetectionModel(nn.Module):
             verbose=verbose,
             ckpt_path=ckpt_path,
             selected_indices=selected_indices,  # if your wrapper supports this
+            full_finetuning=full_finetuning,
         )
         self.img_size = img_size
 

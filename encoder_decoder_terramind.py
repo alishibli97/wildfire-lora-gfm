@@ -23,6 +23,7 @@ class TerraMindChangeDetectionModel(nn.Module):
         verbose: bool = False,
         embed_dim: int = 768,
         has_cls_token: bool = True,
+        full_finetuning: bool = False,
     ):
         super().__init__()
 
@@ -38,6 +39,7 @@ class TerraMindChangeDetectionModel(nn.Module):
             lora_alpha=lora_alpha,
             selected_indices=selected_indices,
             verbose=verbose,
+            full_finetuning=full_finetuning,
         )
 
         # 2. Neck

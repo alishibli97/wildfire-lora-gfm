@@ -1,6 +1,8 @@
 import torch.nn as nn
 from terratorch import BACKBONE_REGISTRY
 import torch
+from loguru import logger
+
 
 class LoRALinear(nn.Module):
     def __init__(self, base_linear, r=8, alpha=1.0):
@@ -61,7 +63,8 @@ class DinoV3Wrapper(nn.Module):
         lora_r=8,
         lora_alpha=1.0,
         verbose=True,
-        selected_indices=(2, 5, 8, 11)
+        selected_indices=(2, 5, 8, 11),
+        full_finetuning=False,
     ):
         super().__init__()
 
@@ -72,9 +75,13 @@ class DinoV3Wrapper(nn.Module):
             pretrained=pretrained
         )
 
-        # Freeze encoder
-        for p in self.dinov3.parameters():
-            p.requires_grad = False
+        if full_finetuning:
+            logger.info("Using all parameters")
+        else:
+            logger.info("Freezing encoder")
+            # Freeze encoder
+            for p in self.dinov3.parameters():
+                p.requires_grad = False
 
         # Apply LoRA
         if use_lora:

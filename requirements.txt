@@ -1,0 +1,12 @@
+torch==2.6.0
+torchvision==0.21.0
+timm==1.0.19
+terratorch==1.1.1
+peft==0.18.0
+einops==0.8.1
+numpy==1.26.4
+scikit-learn==1.7.1
+tqdm==4.67.1
+matplotlib==3.10.5
+Pillow==10.4.0   # your pip output shows "pillow" built from conda; use PyPI version
+rasterio==1.4.3

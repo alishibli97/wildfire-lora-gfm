@@ -1,6 +1,8 @@
 import torch
 import torch.nn as nn
 from terratorch import BACKBONE_REGISTRY
+from loguru import logger
+
 
 class LoRALinear(nn.Module):
     def __init__(self, base_linear: nn.Linear, r: int = 8, alpha: float = 1.0):
@@ -77,6 +79,7 @@ class PrithviWrapper(nn.Module):
         img_size=(128, 128),
         has_cls_token: bool = True,
         verbose: bool = False,
+        full_finetuning: bool = False,
     ):
         super().__init__()
         self.backbone = BACKBONE_REGISTRY.build(
@@ -89,8 +92,12 @@ class PrithviWrapper(nn.Module):
         self.lora_alpha = lora_alpha
 
         # Freeze encoder
-        for p in self.backbone.parameters():
-            p.requires_grad = False
+        if full_finetuning:
+            logger.info("Training the full network")
+        else:
+            logger.info("Freezing encoder")
+            for p in self.backbone.parameters():
+                p.requires_grad = False
 
 
         if use_lora:

@@ -1,6 +1,4 @@
-# wildfire-lora-gfm
-
-**LoRA fine-tuning of Geospatial Foundation Models for Wildfire Burned-Area Mapping (Sentinel-2)**
+# Efficient Adaptation of Geospatial Foundation Models for Wildfire Burned-Area Mapping (Sentinel-2)
 
 ## 🔎 What is this  
 This repository contains code for adapting large Earth-Observation foundation models  

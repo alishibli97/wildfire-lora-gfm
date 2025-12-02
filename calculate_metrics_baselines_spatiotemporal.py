@@ -20,8 +20,9 @@ scheduler = DDIMScheduler()
 split_num = 1
 satellite = "s2"
 imgs_scale = 128
-model_name = "prithvi-v2" # prithvi-v2, terramind, dinov3
-use_lora = True
+model_name = "terramind" # prithvi-v2, terramind, dinov3
+use_lora = False
+full_finetuning = True
 
 with open("spatiotemporal_splits.json", "r") as f:
     cfg = json.load(f)
@@ -47,23 +48,28 @@ if model_name == "prithvi-v2":
             patch_size=(16,16),
             img_size=(128,128),
             decoder_channels=256,
+            full_finetuning=full_finetuning,
         ).to(device)
 
 elif model_name == "terramind":
-    model = TerraMindChangeDetectionModel(use_lora=use_lora).to(device)
+    model = TerraMindChangeDetectionModel(use_lora=use_lora,full_finetuning=full_finetuning).to(device)
 
 elif model_name == "dinov3":
     model = DinoV3ChangeDetectionModel(
         ckpt_path="checkpoints/dinov3_vitb16_pretrain_lvd1689m-73cec8be.pth",
         use_lora=use_lora,
         img_size=(128,128),
+        full_finetuning=full_finetuning,
     ).to(device)
 
 from pathlib import Path
 if use_lora:
     model_dir = f"checkpoints_experiments/{model_name}_US+CA_experiment-spatiotemporal_split-{split_num}_lora"
 else:
-    model_dir = f"checkpoints_experiments/{model_name}_US+CA_experiment-spatiotemporal_split-{split_num}"
+    if full_finetuning:
+        model_dir = f"checkpoints_experiments/{model_name}_US+CA_experiment-spatiotemporal_split-{split_num}_full_finetuning"
+    else:
+        model_dir = f"checkpoints_experiments/{model_name}_US+CA_experiment-spatiotemporal_split-{split_num}"
 # model_dir = f"checkpoints_new/diffusion_{country}_experiment-temporal_split-{split_num}_imgscale-{imgs_scale}"
 model_path = str(max(Path(model_dir).glob("epoch_best_*.pt"), key=lambda p: int(p.stem.split('_')[-1])))
 

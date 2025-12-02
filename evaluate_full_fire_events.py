@@ -17,8 +17,9 @@ import matplotlib.pyplot as plt
 # ============================
 # CONFIG
 # ============================
-use_lora = True   # <-- SET THIS
-model_name = "dinov3"   # prithvi-v2, terramind, dinov3
+use_lora = False   # <-- SET THIS
+full_finetuning = True
+model_name = "dinov3"   # prithvi-v2, terramind, dinov3 # AK6212515612820190711
 window_size = 128
 stride = 32
 split_num = 1
@@ -303,9 +304,15 @@ if __name__ == "__main__":
     device = "cuda" if torch.cuda.is_available() else "cpu"
 
     # Output folder based on model and lora setting
-    lora_tag = "with_lora" if use_lora else "without_lora"
+    if use_lora:
+        tag = "with_lora"
+    elif full_finetuning:
+        tag = "fullfinetuning"
+    else:
+        "without_lora" # AKA decodoer only
+    # lora_tag = "with_lora" if use_lora else "without_lora"
     # out_dir = f"fullfire_visuals_temp/{model_name}_{diff_tag}"
-    out_dir = f"fullfire_visuals/{model_name}_{lora_tag}"
+    out_dir = f"fullfire_visuals/{model_name}_{tag}"
     os.makedirs(out_dir, exist_ok=True)
 
     # -------------------------------
@@ -321,16 +328,18 @@ if __name__ == "__main__":
                 patch_size=(16,16),
                 img_size=(128,128),
                 decoder_channels=256,
+                full_finetuning=full_finetuning,
             ).to(device)
 
     elif model_name == "terramind":
-        model = TerraMindChangeDetectionModel(use_lora=use_lora).to(device)
+        model = TerraMindChangeDetectionModel(use_lora=use_lora,full_finetuning=full_finetuning).to(device)
 
     elif model_name == "dinov3":
         model = DinoV3ChangeDetectionModel(
             ckpt_path="checkpoints/dinov3_vitb16_pretrain_lvd1689m-73cec8be.pth",
             use_lora=use_lora,
             img_size=(128,128),
+            full_finetuning=full_finetuning,
         ).to(device)
 
     else:
@@ -341,7 +350,10 @@ if __name__ == "__main__":
     if use_lora:
         model_dir = f"checkpoints_experiments/{model_name}_US+CA_experiment-spatiotemporal_split-{split_num}_lora"
     else:
-        model_dir = f"checkpoints_experiments/{model_name}_US+CA_experiment-spatiotemporal_split-{split_num}"
+        if full_finetuning:
+            model_dir = f"checkpoints_experiments/{model_name}_US+CA_experiment-spatiotemporal_split-{split_num}_full_finetuning/"
+        else:
+            model_dir = f"checkpoints_experiments/{model_name}_US+CA_experiment-spatiotemporal_split-{split_num}"
     # model_dir = f"checkpoints_new/diffusion_{country}_experiment-temporal_split-{split_num}_imgscale-{imgs_scale}"
     model_path = str(max(Path(model_dir).glob("epoch_best_*.pt"), key=lambda p: int(p.stem.split('_')[-1])))
 

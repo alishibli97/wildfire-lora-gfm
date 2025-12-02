@@ -40,6 +40,7 @@ parser.add_argument('--model_name', type=str, default="prithvi-v2",
 parser.add_argument('--unet', action='store_true',
                     help='Train WITHOUT diffusion (i.e., UNet head logits only, no timestep embedding)')
 parser.add_argument('--lora', action='store_true', help='Lora or no Lora')
+parser.add_argument('--full_finetuning', action='store_true', help='Full finetuning or not')
 parser.add_argument('--beta_schedule', type=str, default="linear",
                     help='Beta noise schedule: (linear, scaled_linear, squaredcos_cap_v2, quadratic, sigmoid)')
 parser.add_argument('--num_timesteps', type=int, default=1000, help='DDIM num_train_timesteps')
@@ -66,6 +67,7 @@ split_num  = args.split_num
 model_name = args.model_name.lower().strip()
 use_timestep = not args.unet  # diffusion on if no --unet
 use_lora   = args.lora
+full_finetuning = args.full_finetuning
 
 beta_schedule        = args.beta_schedule
 num_train_timesteps  = args.num_timesteps
@@ -78,7 +80,10 @@ write_to_wandb       = args.wandb
 if use_lora:
     logger.info(f"Training {model_name} with lora on Wildfire BA Mapping US+CA (spatiotemporal split {split_num})")
 else:
-    logger.info(f"Training {model_name} without lora on Wildfire BA Mapping US+CA (spatiotemporal split {split_num})")
+    if not full_finetuning:
+        logger.info(f"Training {model_name} freezing encoder (decoder-only) without lora on Wildfire BA Mapping US+CA (spatiotemporal split {split_num})")
+    else: # full_finetuning is True
+        logger.info(f"Training {model_name} full finetuning without lora on Wildfire BA Mapping US+CA (spatiotemporal split {split_num})")
 
 # ---------------------------
 # Load splits config
@@ -123,7 +128,10 @@ combined_images_val = torch.cat([val_image_pre, val_image_post], dim=1)
 if use_lora:
     model_dir = f"checkpoints_experiments/{model_name}_US+CA_experiment-spatiotemporal_split-{split_num}_lora"
 else:
-    model_dir = f"checkpoints_experiments/{model_name}_US+CA_experiment-spatiotemporal_split-{split_num}"
+    if full_finetuning:
+        model_dir = f"checkpoints_experiments/{model_name}_US+CA_experiment-spatiotemporal_split-{split_num}_full_finetuning"
+    else:
+        model_dir = f"checkpoints_experiments/{model_name}_US+CA_experiment-spatiotemporal_split-{split_num}"
 
 
 os.makedirs(model_dir, exist_ok=True)
@@ -145,16 +153,18 @@ if model_name == "prithvi-v2":
         patch_size=(16,16),
         img_size=(128,128),
         decoder_channels=256,
+        full_finetuning=full_finetuning,
     ).to(device).train()
     # NOT WRAPPER BUT NEED FULL Encoder-Decoder
 
 elif model_name == "terramind":
-    model = TerraMindChangeDetectionModel(use_lora=use_lora).to(device).train()
+    model = TerraMindChangeDetectionModel(use_lora=use_lora, full_finetuning=full_finetuning).to(device).train()
 elif model_name == "dinov3":
     model = DinoV3ChangeDetectionModel(
         ckpt_path="checkpoints/dinov3_vitb16_pretrain_lvd1689m-73cec8be.pth",
         use_lora=use_lora,
         img_size=(128,128),
+        full_finetuning=full_finetuning,
     ).to(device).train()
 else:
     raise ValueError("model_name must be one of {'prithvi-v2','terramind','dinov3'}")
@@ -170,10 +180,17 @@ def count_parameters(model):
     trainable = sum(p.numel() for p in model.parameters() if p.requires_grad)
     return total, trainable, trainable / total * 100
 
+logger.info("for full model:")
 total, trainable, pct = count_parameters(model)
 logger.info(f"Total params: {total:,}")
 logger.info(f"Trainable params: {trainable:,} ({pct:.4f}%)")
 
+logger.info("for encoder alone:")
+total, trainable, pct = count_parameters(model.backbone)
+logger.info(f"Total params: {total:,}")
+logger.info(f"Trainable params: {trainable:,} ({pct:.4f}%)")
+
+# import pdb; pdb.set_trace()
 
 # ---------------------------
 # (Optional) W&B
