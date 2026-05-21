@@ -17,24 +17,6 @@ Main components:
 - Logit averaging reconstruction of full-scene burned-area maps  
 - Evaluation scripts (IoU, F1, fire-size summaries)
 
----
-
-## 📁 Repository Structure  
-
-├── src/
-│ ├── data/
-│ ├── models/
-│ ├── training/
-│ ├── evaluation/
-│ ├── utils/
-│ └── ...
-├── notebooks/
-├── docs/
-├── requirements.txt
-├── .gitignore
-└── README.md
-
-
 
 ---
 
