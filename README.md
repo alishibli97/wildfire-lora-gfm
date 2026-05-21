@@ -2,10 +2,6 @@
 
 Official implementation of **Low-Rank Adaptation of Geospatial Foundation Models for Wildfire Mapping Using Sentinel-2 Data** (IGARSS 2026).
 
-
-> Ali Shibli, Andrea Nascetti, Yifang Ban  
-> Division of Geoinformatics, KTH Royal Institute of Technology
-
 [[Paper]](https://doi.org/10.48550/arXiv.2605.04989)
 
 
