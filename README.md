@@ -1,4 +1,9 @@
-# Efficient Adaptation of Geospatial Foundation Models for Wildfire Burned-Area Mapping (Sentinel-2)
+# LoRA adaptation of GFMs for Wildfires
+
+Official implementation of **Low-Rank Adaptation of Geospatial Foundation Models for Wildfire Mapping Using Sentinel-2 Data** (IGARSS 2026).
+
+[[Paper]](https://doi.org/10.48550/arXiv.2605.04989)
+
 
 ## 🔎 What is this  
 This repository contains code for adapting large Earth-Observation foundation models  
@@ -11,24 +16,6 @@ Main components:
 - Sliding-window full-fire inference (128×128, stride 32)  
 - Logit averaging reconstruction of full-scene burned-area maps  
 - Evaluation scripts (IoU, F1, fire-size summaries)
-
----
-
-## 📁 Repository Structure  
-
-├── src/
-│ ├── data/
-│ ├── models/
-│ ├── training/
-│ ├── evaluation/
-│ ├── utils/
-│ └── ...
-├── notebooks/
-├── docs/
-├── requirements.txt
-├── .gitignore
-└── README.md
-
 
 
 ---
